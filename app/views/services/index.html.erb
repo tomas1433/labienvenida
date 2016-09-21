@@ -1,28 +1,34 @@
-<h1>Lista de los conserjes</h1>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>City</th>
-      <th>Price</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
 
-  <tbody>
-    <% @services.each do |service| %>
-    <tr>
-      <td><%= service.name %></td>
-      <td><%= service.city %></td>
-      <td><%= service.price %></td>
-      <td><%=link_to 'Ver', service, class: "btn btn-link" %></td>
-      <td><%= link_to 'Editar anuncio', edit_service_path(service), class: "btn btn-link" %></td>
+      <h1 class="text-center">Lista de los conserjes</h1>
 
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-<br>
-<%= link_to 'Nuevo anuncio', new_service_path, class: "btn btn-link" %>
+          <% @services.each do |service| %>
+          <%= link_to service_path(service) do %>
+<div class="product">
+
+ <img src ="http://unsplash.it/150/100?random" class="product_image" %>
+  <div class='product-body'>
+    <h3><%= service.name %></h3>
+    <p><%= service.city %></p>
+  </div>
+
+  <ul class="list-inline product-controls ">
+      <li>
+      <%= link_to edit_service_path(service) do %>
+      <i class="fa fa-pencil"></i>
+
+      </li>
+
+  </ul>
+</div>
+      <% end %>
+
+      <% end %>
+      <% end %>
+      <br>
+      <%= link_to 'Crea tu anuncio de conserje', new_service_path, class: "btn btn-success col-sm-offset-5" %>
+    </div>
+
+  </div>
