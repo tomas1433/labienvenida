@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @service.name %>
+</p>
+
+<p>
+  <strong>Ciudad:</strong>
+  <%= @service.city %>
+</p>
+
+<p>
+  <strong>Precio:</strong>
+  <%= @service.price %>
+</p>
+
+<%=link_to 'Editar', edit_service_path(@service), class: "btn btn-warning" %>
+
+<%=link_to 'Volver a la lista', services_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>

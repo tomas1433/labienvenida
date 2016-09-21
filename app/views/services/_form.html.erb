@@ -1,0 +1,6 @@
+<%= simple_form_for @service do |f| %>
+<%= f.input :name, placeholder: "Trabajo de conserje autonomo..", label: "Describete" %>
+<%= f.input :city, placeholder: "Malaga", label:"En que ciudad quieres trabajar" %>
+<%= f.input :price, placeholder: "15 euros", label:"Cuanto facturas el servicio" %>
+<%= f.button :submit, "Validar", class: "btn btn-primary" %>
+<% end %>

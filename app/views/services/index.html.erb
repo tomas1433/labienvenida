@@ -1,0 +1,28 @@
+<h1>Lista de los conserjes</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>City</th>
+      <th>Price</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @services.each do |service| %>
+    <tr>
+      <td><%= service.name %></td>
+      <td><%= service.city %></td>
+      <td><%= service.price %></td>
+      <td><%=link_to 'Ver', service, class: "btn btn-link" %></td>
+      <td><%= link_to 'Editar anuncio', edit_service_path(service), class: "btn btn-link" %></td>
+
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to 'Nuevo anuncio', new_service_path, class: "btn btn-link" %>
