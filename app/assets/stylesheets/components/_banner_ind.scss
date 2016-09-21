@@ -1,0 +1,19 @@
+.banner-ind {
+  display: block;
+  text-align: center;
+  line-height: 200px;
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+}
+.banner-ind.checkin {
+ background: $green;
+}
+
+.banner-ind.checkout {
+ background: $green;
+}
+
+.banner-ind.limpieza {
+  background: $green;
+}

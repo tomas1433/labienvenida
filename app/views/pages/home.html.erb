@@ -5,3 +5,17 @@
      <%= link_to "Descubre nuestros conserjes", services_path, class: "btn btn-primary btn-lg" %>
   </div>
 </div>
+
+<div class= "container padded">
+  <div clas="row">
+    <div class="col-xs-12 col-sm-4">
+      <%= link_to "Check-in", services_path(category: "Check-in"), class: "banner-ind.checkin" %>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <%= link_to "Check-out", services_path(category: "Check-out"), class:"banner-ind.checkout" %>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <%= link_to "Limpieza", services_path(category: "Limpieza"), class: "banner-ind.limpieza" %>
+    </div>
+  </div>
+</div>

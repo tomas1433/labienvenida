@@ -6,7 +6,9 @@
  <div class="card-description">
     <h2>Solicita a <%= @service.name %> en <%= @service.city %></h2>
 
-
+<span class="label label-default">
+  <%= @service.category %>
+   </span>
   <%= image_tag "face.jpg", class: "avatar-card" %>
   </div>
   </div>
@@ -22,7 +24,7 @@
 
       <p>
         <strong>Precio:</strong>
-        <%= @service.price %>
+        <%= @service.price %>euros
       </p>
 
 

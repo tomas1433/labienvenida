@@ -2,7 +2,11 @@ class ServicesController < ApplicationController
  before_action :find_service, only: [:show, :edit, :update]
 
   def index
+    if params[:category]
+      @services = Service.where(category: params[:category])
+      else
       @services =  Service.all
+   end
   end
    def show
 
@@ -36,7 +40,7 @@ class ServicesController < ApplicationController
 
   private
   def service_params
-    params.require(:service).permit(:name, :city, :price)
+    params.require(:service).permit(:name, :city, :price, :category)
   end
 
   def find_service
