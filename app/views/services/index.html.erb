@@ -7,8 +7,11 @@
           <% @services.each do |service| %>
           <%= link_to service_path(service) do %>
 <div class="product">
-
+<% if user.avatar? %>
+  <%= cl_image_tag(user.avatar.path, height: 117, width: 175, crop: :fill, class: 'product-image') %>
+  <% else %>
  <img src ="http://unsplash.it/150/100?random" class="product_image" %>
+  <% end %>
   <div class='product-body'>
     <h3><%= service.name %></h3>
     <p><%= service.city %></p>

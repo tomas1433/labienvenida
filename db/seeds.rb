@@ -7,7 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Service.destroy_all
+#Service.destroy_all
+#User.destrooy_all
 
-Service.create!(name: "ines", city: "malaga", price: "15")
-Service.create!(name: "Tom", city: "Sevilla", price: "15")
+tomas = User.create!(email: 'tom@yopmail.com', password: '123456')
+ines = User.create!(email: 'ines@yopmail.com', password: '123456')
+
+Service.create!(user: ines, name: "ines", city: "malaga", price: "15")
+Service.create!(user: tomas, name: "Tom", city: "Sevilla", price: "15")

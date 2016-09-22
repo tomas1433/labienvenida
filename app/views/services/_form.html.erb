@@ -3,5 +3,6 @@
 <%= f.input :city, placeholder: "Malaga", label:"En que ciudad quieres trabajar" %>
 <%= f.input :price, placeholder: "15 euros", label:"Cuanto facturas el servicio" %>
 <%= f.input :category, collection: ["Check-in", "Check-out", "Limpieza"], prompt: "Que servicios puedes ofrecer?", label:"Que servicios puedes ofrecer?" %>
+<%= f.input :photo, as: :attachinary %>
 <%= f.button :submit, "Validar", class: "btn btn-primary" %>
 <% end %>

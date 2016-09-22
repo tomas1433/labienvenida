@@ -1,4 +1,8 @@
 class Service < ApplicationRecord
+  has_attachment :photo
+  belongs_to :user
+
+  validates :user, presence: true
   validates :name, presence: true
   validates :city, presence: true
   validates :price, presence: true

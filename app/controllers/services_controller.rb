@@ -1,5 +1,6 @@
 class ServicesController < ApplicationController
- before_action :find_service, only: [:show, :edit, :update]
+ skip_before_action :authenticate_user!, only: [ :index, :show ]
+  before_action :find_service, only: [:show, :edit, :update]
 
   def index
     if params[:category]
@@ -17,6 +18,7 @@ class ServicesController < ApplicationController
   end
      def create
        @service = Service.new(service_params)
+       @service.user = current_user
        if @service.save
          redirect_to services_path
          else
@@ -29,18 +31,19 @@ class ServicesController < ApplicationController
   end
 
    def update
-
-     if @service.update(service_params)
+     if @service.user  == current_user
+     @service.update(service_params)
        redirect_to services_path
        else
-       render :edit
+       flash[:alert] = "Este no es su producto"
+       render :index
      end
   end
 
 
   private
   def service_params
-    params.require(:service).permit(:name, :city, :price, :category)
+    params.require(:service).permit(:name, :city, :price, :category, :photo)
   end
 
   def find_service
