@@ -37,8 +37,8 @@
 
 
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-          <li><a href="#">Mi cuenta</a></li>
-          <li><a href="#">Mis anuncios</a></li>
+          <li><%= link_to 'Editar mi perfil',  edit_user_registration_path %></li>
+          <li><%= link_to 'Mis anuncios',  seller_path %></li>
           <li><%= link_to 'Desconectarse', destroy_user_session_path, method: :delete %></li>
         </ul>
       </div>
@@ -57,7 +57,7 @@
          <img src="http://placehold.it/50x50" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
         <% end %>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-          <li><a href="#">Mi cuenta</a></li>
+          <li><%= link_to 'Mis anuncios',  seller_path %></li>
           <li><%= link_to 'Editar mi perfil', edit_user_registration_path %></li>
         <li><%= link_to 'Crea un anuncio', new_service_path %></li>
         <li><%= link_to 'Desconectarse', destroy_user_session_path, method: :delete %></li>

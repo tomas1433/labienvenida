@@ -10,7 +10,7 @@
   <%= @service.category %>
    </span>
  <% if @service.photo? %>
-   <%= cl_image_tag @service.photo.path, width: 200 %>
+   <%= cl_image_tag @service.photo.path, width: 50, width: 70, crop: :fill %>
    <% end %>
   </div>
   </div>
@@ -31,8 +31,9 @@
 
 
 
-
+<% if current_user == @service.user %>
 <%=link_to 'Editar', edit_service_path(@service), class: "btn btn-warning" %>
+<% end %>
 
 <%=link_to 'Volver a la lista', services_path, class: "btn btn-primary" %>
     </div>
