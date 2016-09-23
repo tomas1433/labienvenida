@@ -2,11 +2,16 @@
   <div class="banner-content">
     <h1>LaBienvenida</h1>
     <p>Solicita un conserje para ocuparse de tu alquiler Airbnb cuando no estas en casa</p>
-     <%= link_to "Descubre nuestros conserjes", services_path, class: "btn btn-primary btn-lg" %>
+    <% if user_signed_in? %>
+     <div class=" btn btn-primary"> Tendras promto noticias nuestras para empezar a utilizar LaBienvenida </div>
+    <% else %>
+    <p style="color:orange">Quieres ofrecer tus servicios para gestionar Airbnb o necesitas alguien ?</p>
+    <%= link_to "Registrate ahora !", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+    <% end %>
   </div>
 </div>
 
-<div class= "container padded">
+<!-- <div class= "container padded">
   <div clas="row">
     <div class="col-xs-12 col-sm-4">
       <%= link_to "Check-in", services_path(category: "Check-in"), class: "banner-ind.checkin" %>
@@ -18,4 +23,45 @@
       <%= link_to "Limpieza", services_path(category: "Limpieza"), class: "banner-ind.limpieza" %>
     </div>
   </div>
-</div>
+  </div> -->
+
+
+  <div id="footer">
+    <div class="container">
+        <div class="row">
+            <h3 class="text-center">Como funciona ?</h3>
+          <h5 class="text-center">LaBienvenida, primera marketplace Española para encontrar conserjes Airbnb !</h5>
+            <br>
+            <br>
+            <br>
+              <div class="col-md-4">
+                <center>
+                  <i class="fa fa-search fa-5x" style="color:orange" aria-hidden="true"></i>
+                  <br>
+                  <h4 class="footertext">Elije</h4>
+                  <p class="footertext">Necesitas ayuda para gestionar tus alquileres Airbnb? Check-in/out, limpieza ? <br>
+                </center>
+              </div>
+
+              <div class="col-md-4">
+                <center>
+                  <i class="fa fa-key fa-5x" style="color:orange" aria-hidden="true"></i>
+                  <br>
+                  <h4 class="footertext">Reserva</h4>
+                  <p class="footertext">Solicita el conserje que mas te guste cerca de tu casa. Conocen tdo Airbnb, Sejourning, FlatPooling..<br>
+                </center>
+              </div>
+
+              <div class="col-md-4">
+                <center>
+                  <i class="fa fa-hand-peace-o fa-5x" style="color:orange" aria-hidden="true"></i>
+                  <br>
+                  <h4 class="footertext">Disfruta</h4>
+                  <p class="footertext">Su conserje le da la bienvenida a sus clientes Airbnb<br>
+                </center>
+              </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
