@@ -1,13 +1,12 @@
-<%= simple_form_for(@request) do |f| %>
+<%= simple_form_for([@service, @request]) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :seller %>
-    <%= f.input :user %>
-    <%= f.input :statut %>
+    <%= f.input :date %>
+
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, "Finalizar solicitud", class: "btn btn-success" %>
   </div>
 <% end %>

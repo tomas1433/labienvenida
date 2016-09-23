@@ -14,7 +14,10 @@
    <% end %>
   </div>
   </div>
-
+      
+<%= link_to "Hacer una solicitud", new_service_request_path(@service), class: "btn btn-success" %>
+      
+      <p>
         <strong>Nombre:</strong>
         <%= @service.name %>
       </p>

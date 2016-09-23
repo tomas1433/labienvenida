@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
   mount Attachinary::Engine => "/attachinary"
   devise_for :users
-  resources :requests
+  resources :services, only: [:new, :create, :index, :show, :edit, :update] do
+  resources :requests, only: [:new, :created]
+  end
+
   root to: 'pages#home'
   get "/contact" => "pages#contact"
   get 'seller' => "services#seller"
-  resources :services, only: [:new, :create, :index, :show, :edit, :update]
+  get 'sales'  => "requests#sales"
+  get 'purchases' => "requests#purchases"
 
 
 

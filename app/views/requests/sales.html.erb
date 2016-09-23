@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+
+      <h1 class="text-center">Tus tareas</h1>
+
+          <% @requests.each do |request| %>
+          <%= link_to service_path(service) do %>
+<div class="product">
+  <ul>
+    <li><h3>Solicitud hecha el <%= order.created_at.strftime("%B %-d, %Y") %></h3></li>
+    <li><%= cl_image_tag request.service.avatar.url(:thumb) %></li>
+    <li><%= request.buyer.name %></li>
+    <li><h4>Solicita tu servicio para el dia <%= order.date %></h4></li>
+  </ul>
+</div>
+
+      <% end %>
+      <% end %>
+      <br>
+
+    </div>
+
+  </div>

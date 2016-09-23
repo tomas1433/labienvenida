@@ -1,8 +1,15 @@
 class RequestsController < ApplicationController
   before_action :set_request, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
   # GET /requests
   # GET /requests.json
+  def sales
+    @requests = Request.all.where(seller: current_user).order("created_at DESC")
+  end
+  def purchases
+    @requests = Request.all.where(buyer: current_user).order("created_at DESC")
+  end
+
   def index
     @requests = Request.all
   end
@@ -15,6 +22,7 @@ class RequestsController < ApplicationController
   # GET /requests/new
   def new
     @request = Request.new
+    @service = Service.find(params[:service_id])
   end
 
   # GET /requests/1/edit
@@ -25,6 +33,12 @@ class RequestsController < ApplicationController
   # POST /requests.json
   def create
     @request = Request.new(request_params)
+    @service = Service.find(params[:service_id])
+    @seller  = @service.user
+
+    @request.service_id = @service.id
+    @request.buyer_id = current_user.id
+    @request.seller_id = @seller.id
 
     respond_to do |format|
       if @request.save
