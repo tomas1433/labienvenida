@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   mount Attachinary::Engine => "/attachinary"
+  #devise_for :users
   devise_for :users
   resources :services, only: [:new, :create, :index, :show, :edit, :update] do
   resources :requests, only: [:new, :created]

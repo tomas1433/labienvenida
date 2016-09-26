@@ -1,20 +1,22 @@
 class ServicesController < ApplicationController
  skip_before_action :authenticate_user!, only: [ :index, :show ]
   before_action :find_service, only: [:show, :edit, :update]
+  before_filter :check_seller
 before_filter :check_user, only: [:edit, :update]
-  
+
   def seller
     @services = Service.where(user: current_user)
   end
-  
-  
-  
+
+
+
   def index
     if params[:category]
       @services = Service.where(category: params[:category])
       else
       @services =  Service.all
    end
+
   end
    def show
 
@@ -51,6 +53,10 @@ before_filter :check_user, only: [:edit, :update]
   private
   def service_params
     params.require(:service).permit(:name, :city, :price, :category, :photo)
+  end
+
+  def check_seller
+    @seller = Service.find(params[:service_id]).user
   end
 
   def find_service

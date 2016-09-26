@@ -10,8 +10,8 @@
 #Service.destroy_all
 #User.destrooy_all
 
-tomas = User.create!(email: 'tom@yopmail.com', password: '123456')
-ines = User.create!(email: 'ines@yopmail.com', password: '123456')
+tomas = User.create!(email: 'tom@yopmail.com', password: '123456', phone: 000000000)
+ines = User.create!(email: 'ines@yopmail.com', password: '123456', phone: 000000000)
 
 Service.create!(user: ines, name: "ines", city: "malaga", price: "15")
 Service.create!(user: tomas, name: "Tom", city: "Sevilla", price: "15")

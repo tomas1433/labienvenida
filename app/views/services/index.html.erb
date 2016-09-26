@@ -6,6 +6,8 @@
 
           <% @services.each do |service| %>
           <%= link_to service_path(service) do %>
+      //avatar du créateur de service
+      <%= cl_image_tag seller.avatar.path, height: 50, crop: :fill %>
 <div class="product">
 
 
